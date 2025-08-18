@@ -31,12 +31,12 @@ website:
 
   draft-mode: unlinked
 
-  announcement:
-    icon: calendar-check
-    dismissable: true
-    content: "**Reminder!** The final deadline for all assignments other than the final project is **Tuesday, July 29 at 11:59 PM**"
-    type: danger
-    position: below-navbar
+  # announcement:
+  #   icon: calendar-check
+  #   dismissable: true
+  #   content: "**Reminder!** The final deadline for all assignments other than the final project is **Tuesday, July 29 at 11:59 PM**"
+  #   type: danger
+  #   position: below-navbar
 
   favicon: "/files/favicon-512.png"
 
