@@ -1,7 +1,7 @@
 ---
 title: "Interactivity"
-date: "2025-07-14"
-date_end: "2025-07-18"
+date: "2025-11-03"
+date_end: "2025-11-07"
 ---
 
 ```{r load-targets, include=FALSE}

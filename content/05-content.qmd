@@ -1,7 +1,7 @@
 ---
 title: "Themes"
-date: "2025-06-23"
-date_end: "2025-06-27"
+date: "2025-09-22"
+date_end: "2025-09-26"
 ---
 
 ```{r slides-videos, echo=FALSE, include=FALSE}

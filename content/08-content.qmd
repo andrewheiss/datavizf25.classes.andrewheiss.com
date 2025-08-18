@@ -1,7 +1,7 @@
 ---
 title: "Comparisons"
-date: "2025-06-30"
-date_end: "2025-07-04"
+date: "2025-10-13"
+date_end: "2025-10-17"
 ---
 
 ```{r slides-videos, echo=FALSE, include=FALSE}

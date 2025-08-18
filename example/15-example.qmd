@@ -1,7 +1,7 @@
 ---
 title: "Truth, beauty, and data revisited"
-date: "2025-07-28"
-date_end: "2025-07-29"
+date: "2025-12-08"
+date_end: "2025-12-09"
 ---
 
 If you're interested in learning more about data storytelling and science communication, check out these resources:
