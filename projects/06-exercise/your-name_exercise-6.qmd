@@ -1,6 +1,6 @@
 ---
 title: "Uncertainty"
-subtitle: "Exercise 6 --- PMAP 8551, Summer 2025"
+subtitle: "Exercise 6 --- PMAP 8551, Fall 2025"
 author: "YOUR NAME HERE"
 date: "DATE GOES HERE"
 date-format: "long"

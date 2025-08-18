@@ -1,6 +1,6 @@
 ---
 title: "Analysis of life in the Good Place"
-subtitle: "Final project--- PMAP 8551, Summer 2025"
+subtitle: "Final project--- PMAP 8551, Fall 2025"
 author: "Eleanor Shellstrop"
 date: "2024-12-16"
 date-format: "long"
