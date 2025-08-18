@@ -1,0 +1,127 @@
+---
+title: "Space"
+date: "2025-07-14"
+date_end: "2025-07-18"
+---
+
+```{r slides-videos, echo=FALSE, include=FALSE}
+source(here::here("R", "slide-things.R"))
+source(here::here("R", "youtube-playlist.R"))
+
+playlist_id <- "PLS6tnpTr39sGd_PCE07nym2Df9120FW1U"
+
+slide_details <- tibble::tribble(
+  ~youtube_id,   ~title, ~slide, ~active,
+  "fOpsbd6-PzU", "Introduction", "1", TRUE,
+  "acP8mwyLNt0", "Maps and truth", "maps-truth", FALSE,
+  "OqKdU0qzfjA", "Putting data on maps", "data-on-maps", FALSE,
+  "qbrnzSRPyb0", "GIS in R with sf", "gis-sf", FALSE
+)
+```
+
+## Readings
+
+### Required readings
+
+Foundational principles:
+
+- {{< fa book >}} Chapter 10 in *The Truthful Art* [@Cairo:2016]
+- {{< fa book >}} [Chapter 7](http://socviz.co/maps.html) in *Data Visualization* [@Healy:2018]
+
+Geographic principles:
+
+- {{< fa brands youtube >}} [Why all world maps are wrong](https://www.youtube.com/watch?v=kIID5FDi2JQ)
+- {{< fa arrow-up-right-from-square >}} ["When Maps Lie"](https://www.citylab.com/design/2015/06/when-maps-lie/396761/)
+- {{< fa arrow-up-right-from-square >}} [The True Size Of…](https://thetruesize.com)
+- {{< fa arrow-up-right-from-square >}} [Projection comparison](https://observablehq.com/@d3/projection-comparison)
+- {{< fa arrow-up-right-from-square >}} [Map projections](https://xkcd.com/977/) (try comparing Robinson with Mercator to see how badly Mercator exaggerates the northern hemisphere)
+
+### Readings you should glance through as examples
+
+Projections:
+
+- {{< fa arrow-up-right-from-square >}} ["These Twisted Maps Prove That America Isn't a Red Country"](https://newrepublic.com/article/115550/cartograms-are-important-inforgraphic-tool)
+- {{< fa arrow-up-right-from-square >}} ["New World Map That Accurately Shows Earth in 2D Created by Scientists"](https://www.newsweek.com/equal-earth-map-continents-accurate-2d-1102404)
+
+{sf} in action:
+
+- {{< fa arrow-up-right-from-square >}} Andrew Heiss, ["How to make fancy road trip maps with R and OpenStreetMap"](https://www.andrewheiss.com/blog/2023/06/01/geocoding-routing-openstreetmap-r/) 
+- {{< fa arrow-up-right-from-square >}} Andrew Heiss, ["Road trip analysis! How to use and play with Google Location History in R"](https://www.andrewheiss.com/blog/2023/07/03/using-google-location-history-with-r-roadtrip/) 
+- {{< fa arrow-up-right-from-square >}} Andrew Heiss, ["Making Middle Earth maps with R"](https://www.andrewheiss.com/blog/2023/04/26/middle-earth-mapping-sf-r-gis/)
+- {{< fa arrow-up-right-from-square >}} Andrew Heiss, ["Calculating the proportion of US state borders that are coastlines"](https://www.andrewheiss.com/blog/2024/05/08/coastline-to-border-proportions/)
+
+More {sf} fun times:
+
+- {{< fa arrow-up-right-from-square >}} If you want to understand how the magic `geometry` column actually works, check out [this fantastic post](https://www.jessesadler.com/post/simple-feature-objects/).
+- {{< fa arrow-up-right-from-square >}} Check out [this post where someone used {ggplot2} and {sf} to create fancy city map-based art that she printed for a friend](https://www.katiejolly.io/blog/2019-01-21/map-cutouts). You can do similar things after this session!
+- {{< fa arrow-up-right-from-square >}} In addition to the example for this session, you can [check out this tutorial on using the {sf} package to create maps](https://r-spatial.org//r/2018/10/25/ggplot2-sf.html). It shows how to include fancy map stuff like a north arrow and scale bar. 
+
+
+## Slides
+
+The slides for this week's lesson are available online as an HTML file. Use the buttons below to open the slides either as an interactive website or as a static PDF (for printing or storing for later). You can also click in the slides below and navigate through them with your left and right arrow keys.
+
+```{r show-slide-tabs, echo=FALSE, results="asis"}
+slide_buttons("/slides/12-slides")
+
+xaringanExtra::embed_xaringan(
+  "/slides/12-slides.html",
+  ratio = "16:9",
+  border = "none",
+  margin = "0 auto"
+)
+```
+
+:::{.callout-tip}
+**Fun fact**: If you type <kbd>?</kbd> (or <kbd>shift</kbd> + <kbd>/</kbd>) while going through the slides, you can see a list of special slide-specific commands.
+:::
+
+
+## Videos
+
+```{r show-youtube-list, echo=FALSE, results="asis"}
+youtube_list(slide_details, playlist_id)
+```
+
+
+```{cat include=FALSE, eval=FALSE}
+https://www.youtube.com/playlist?list=PLS6tnpTr39sGd_PCE07nym2Df9120FW1U
+
+https://youtu.be/fOpsbd6-PzU
+PMAP 8921 • (12) Space: (0) Introduction
+
+Introduction to the class session on visualizing space and geography
+
+Access the slides, code, and other materials at the course website at https://datavizm20.classes.andrewheiss.com/content/12-content/
+
+
+https://youtu.be/acP8mwyLNt0
+PMAP 8921 • (12) Space: (1) Maps and truth
+
+Discussion of how not to lie with maps and different projections can distort or enhance the truth
+
+Access the slides, code, and other materials at the course website at https://datavizm20.classes.andrewheiss.com/content/12-content/
+
+  
+https://youtu.be/OqKdU0qzfjA
+PMAP 8921 • (12) Space: (2) Putting data on maps
+
+Discussion of different methods for visualizing data in maps
+
+Access the slides, code, and other materials at the course website at https://datavizm20.classes.andrewheiss.com/content/12-content/
+  
+  
+https://youtu.be/qbrnzSRPyb0
+PMAP 8921 • (12) Space: (3) GIS in R with sf
+
+Brief overview of key GIS concepts + how to use the sf package in R to make maps
+
+Access the slides, code, and other materials at the course website at https://datavizm20.classes.andrewheiss.com/content/12-content/
+  
+https://youtu.be/Opzwtegvuv4
+PMAP 8921 • (12) Time: Example
+
+Demonstration of how to use the sf and ggplot2 packages in R to plot shapefiles and make maps
+
+Download the data and see the polished code at https://datavizm20.classes.andrewheiss.com/example/12-example/
+```

@@ -1,0 +1,15 @@
+---
+title: "Data Visualization (Summer 2025 PMAP 8551/4551) News"
+search: false
+listing:
+  sort: "date desc"
+  feed: 
+    title: "Data Visualization (Summer 2025 PMAP 8551/4551) News"
+    description: "Updates and FAQs for PMAP 8551/4551 at Georgia State University, Summer 2025"
+    items: 100
+    type: metadata
+    language: en
+  contents:
+    - "news/*.qmd"
+    - "!news/index.qmd"
+---

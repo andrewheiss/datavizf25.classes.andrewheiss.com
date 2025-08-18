@@ -1,0 +1,51 @@
+---
+title: "Time"
+subtitle: "Exercise 13 --- PMAP 8551, Summer 2025"
+author: "YOUR NAME HERE"
+date: "DATE GOES HERE"
+date-format: "long"
+format:
+  html:
+    toc: true
+  pdf:
+    toc: true
+  docx:
+    toc: true
+---
+
+---
+
+# Task 1: Session check-in
+
+Three interesting or exciting things:
+
+1. Something
+2. Something
+3. Something
+
+Three muddy or unclear things:
+
+1. Something
+2. Something
+3. Something
+
+
+# Task 2: Visualizing time
+
+```{r}
+#| label: load-libraries-data
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+# Load data here
+```
+
+Do the following:
+
+1. Load some time-related data
+
+2. Make a plot to show how that data changes over time.
+
+3. Explain why you chose to visualize the data the way you did.
