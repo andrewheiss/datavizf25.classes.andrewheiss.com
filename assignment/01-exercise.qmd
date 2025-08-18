@@ -1,6 +1,6 @@
 ---
 title: "Introduction to R and the tidyverse"
-date: "2025-06-16"
+date: "2025-09-02"
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +30,7 @@ Before starting this exercise, make sure you complete everything at [the lesson 
    ````default
    ---
    title: "Introduction to R and the tidyverse"
-   subtitle: "Exercise 1 --- PMAP 8551, Summer 2025"
+   subtitle: "Exercise 1 --- PMAP 8551, Fall 2025"
    format: 
      html:
        toc: true

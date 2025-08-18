@@ -34,7 +34,7 @@ On iCollege, you'll submit two things:
 1. A rendered Quarto document with your code and output
 2. A link to wherever you've shared your TidyTuesday creation (Bluesky, LinkedIn, Instagram, a webpage or blog, or whatever).
 
-You need to submit this **before July 29, 2025** (the last day of class). I recommend *not* waiting until the last week to do it.
+You need to submit this **before December 9, 2025** (the last after the day of class). I recommend *not* waiting until the last week to do it.
 
 You'll be graded based on the check system we use for all other assignments:
 

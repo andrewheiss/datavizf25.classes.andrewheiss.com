@@ -1,6 +1,6 @@
 ---
 title: "Enhancing graphics"
-date: "2025-07-14"
+date: "2025-11-03"
 ---
 
 ```{r setup, include=FALSE}

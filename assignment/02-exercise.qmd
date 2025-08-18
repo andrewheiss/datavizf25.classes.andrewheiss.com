@@ -1,6 +1,6 @@
 ---
 title: "Graphic design"
-date: "2025-06-16"
+date: "2025-09-08"
 ---
 
 ## Task 1: Session check-in
