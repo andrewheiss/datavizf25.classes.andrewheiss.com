@@ -63,8 +63,8 @@ render_xaringan <- function(slide_path) {
 # to be done manually from a different non-renv session:
 #
 # renderthis::to_pdf(
-#   from = "~/Sites/courses/datavizs25/slides/12-slides.html", 
-#   to = "~/Sites/courses/datavizs25/slides/12-slides.pdf", 
+#   from = "~/Sites/courses/datavizf25/slides/12-slides.html", 
+#   to = "~/Sites/courses/datavizf25/slides/12-slides.pdf", 
 #   complex_slides = TRUE
 # )
 

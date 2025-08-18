@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 REMOTE_HOST="ath-cloud"
-REMOTE_DIR="~/sites/classes/datavizs25.classes/public"
+REMOTE_DIR="~/sites/classes/datavizf25.classes/public"
 REMOTE_DEST=$REMOTE_HOST:$REMOTE_DIR
 
 echo "Uploading new changes to remote server..."
@@ -12,7 +12,7 @@ if [ $? -eq 0 ]; then
   echo
   echo "... done!"
   echo
-  echo "The site is live at https://datavizs25.classes.andrewheiss.com/"
+  echo "The site is live at https://datavizf25.classes.andrewheiss.com/"
 else
   echo
   echo "Error!"

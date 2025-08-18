@@ -32,7 +32,7 @@ Three muddy or unclear things:
 
 # Task 2: Enhanced plot
 
-When you knit this document, you will create and save a basic bar chart of hot dog eating contest winners. You will then open the resulting file in a [vector editing program](https://datavizs25.classes.andrewheiss.com/resource/graphics-editors.html).
+When you knit this document, you will create and save a basic bar chart of hot dog eating contest winners. You will then open the resulting file in a [vector editing program](https://datavizf25.classes.andrewheiss.com/resource/graphics-editors.html).
 
 Be sure that you save your file **with a different name**. You don't want to accidentally overwrite all your enhancements and updates when you knit this document. That would be so sad.
 

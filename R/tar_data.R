@@ -141,7 +141,7 @@ save_data <- list(
     format = "file"),
   
   # Data via BLS and collected/processed here
-  # https://datavizs25.classes.andrewheiss.com/exercise/08-exercise.html#postscript-how-i-got-this-unemployment-data
+  # https://datavizf25.classes.andrewheiss.com/exercise/08-exercise.html#postscript-how-i-got-this-unemployment-data
   tar_target(copy_unemployment,
     copy_file(here_rel("files", "data", "external_data", "unemployment.csv"),
       new_folder = here_rel("projects", "08-exercise", "data")),
@@ -294,8 +294,8 @@ get_gutenberg_books <- function() {
 
 set_up_python <- function() {
   library(reticulate)
-  virtualenv_create("datavizs25")
-  py_install("cleannlp", envname = "datavizs25")
+  virtualenv_create("datavizf25")
+  py_install("cleannlp", envname = "datavizf25")
 }
 
 tag_little_women <- function(raw_text) {
@@ -334,7 +334,7 @@ tag_little_women <- function(raw_text) {
     doc_name = "chapter_number")
   
   # Use spaCy
-  reticulate::use_virtualenv("datavizs25", required = TRUE)
+  reticulate::use_virtualenv("datavizf25", required = TRUE)
   cnlp_init_spacy("en_core_web_sm")
   spacy <- cnlp_annotate(little_women_to_tag, 
     text_name = "text", 
