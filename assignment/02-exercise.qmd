@@ -79,3 +79,9 @@ In 1–2 paragraphs, critique your new design using the CRAP checklist. How did 
 ## Turning everything in
 
 On iCollege, submit a PDF of your new poster, along with a PDF of your check-in and all the other writing tasks.
+
+::: {.callout-tip}
+### Share!
+
+[As part of building class community](/news/2025-08-21_building-community.qmd), consider showing off your redesigned poster in the `#bragging` channel on Discord!
+:::
