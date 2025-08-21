@@ -3,39 +3,79 @@ title: "Graphic design"
 date: "2025-09-08"
 ---
 
+::: {.callout-note}
+### Quarto is optional
+
+You don't need to worry about using Quarto for this assignment, unless you want to (I encourage you to try using Quarto though!). You can put your check-in and other writing in regular Word document and submit that.
+:::
+
+
 ## Task 1: Session check-in
 
 Write your [session check-in](/assignment/session-check-in.qmd) for the session's readings.
 
+::: {.callout-tip}
+### Check-in reminder
 
-## Task 2: CRAP critique
+Remember to do this for your check-in:
 
-Critique the design of the poster for the BYU Student Wellness Center workshop below. Go through the CRAP checklist and analyze how well or poorly the poster follows each of the principles. Discuss how the poster's adherence to (or non-adherence to) these principles influences its effectiveness.
+> Three interesting or exciting things:
+> 
+> 1. Something
+> 2. Something
+> 3. Something
+> 
+> Three muddy or unclear things:
+> 
+> 1. Something
+> 2. Something
+> 3. Something
 
-::: {.callout-note}
-### Why BYU?
-
-This would have been some random poster from GSU, but I hadn't been on campus for months when I recorded this video in 2020 thanks to the pandemic `r emoji::emoji("sob")`, so I dug this photo out from a previous version of this class
 :::
 
-```{r project-structure, echo=FALSE, out.width="60%", fig.align="center"}
-knitr::include_graphics("/files/img/assignments/student-wellness.jpg", error = FALSE)
+## Task 2: Poster redesign
+
+Here's a typical poster you might see in your workplace or on campus. (I found this on a table on the 6th floor in 55 Park Place near the economics department)
+
+**Do the four tasks below while consulting this poster**
+
+```{r project-structure, echo=FALSE, out.width="90%", fig.align="center"}
+knitr::include_graphics("/projects/02-exercise/excen-flyer.jpg", error = FALSE)
 ```
 
+### Part 1: Audience analysis
 
-## Task 3: CRAP redesign
+In 1–2 paragraphs, discuss these things:
 
-Redesign the poster for the BYU Student Wellness Center workshop. Use whatever program you want—even PowerPoint if you're most comfortable with that, though it'll probably be easier to use something like [Canva](https://www.canva.com/) or Adobe Illustrator. If you use Canva, don't use any of the built-in templates—start from scratch with a blank page.
+- Who is the main audience for this poster?
+- In what setting will people see this? How much time will they have to interact with it?
+- What kind of information do they need to know?
+- What's the most important piece of information they need?
+- What should the audience do as a result of seeing this poster?
 
-To save you from retyping everything, I've included all the text and Student Wellness hex logo in the zip file below:
+### Part 2: CRAP critique
+
+Critique the design of the poster. Go through the CRAP checklist and analyze how well or poorly the poster follows each of the principles. Discuss how the poster's adherence to (or non-adherence to) these principles influences its effectiveness.
+
+### Part 3: CRAP redesign
+
+Based on your audience analysis and critique of the original poster, redesign this poster. Use whatever program you want—even PowerPoint if you're most comfortable with that, though it'll probably be easier to use something like [Canva](https://www.canva.com/) or Adobe Illustrator. If you use Canva, don't use any of the built-in templates—start from scratch with a blank page.
+
+To save you from retyping everything, I've included all the text, the logo, and the QR code in the zip file below:
 
 - [{{< fa file-archive >}} `02-exercise.zip`](/projects/02-exercise.zip)
 
-I didn't include the Instagram logo. If you want to use that, go find one online. You don't have to use it. You don't have to use the big paragraph of text either—you can rewrite it to shrink it down if you want.
+::: {.callout-important}
+### Don't use everything!
 
-Critique your new design using the CRAP checklist. How did you use contrast, repetition, alignment, and proximity in your improved design?
+You don't have to use every piece of text and every image from the original poster. You probably shouldn't! Make this new version fit with your audience analysis while following the CRAP graphic design principles.
+:::
+
+### Part 4: Redesign critique
+
+In 1–2 paragraphs, critique your new design using the CRAP checklist. How did you use contrast, repetition, alignment, and proximity in your improved design? How does this new version meet the audience's needs?
 
 
 ## Turning everything in
 
-You don't need to worry about using Quarto for this assignment (unless you really want to). On iCollege, submit a PDF of your new poster, along with a PDF of your check-in and your critiques of the original poster and your new poster.
+On iCollege, submit a PDF of your new poster, along with a PDF of your check-in and all the other writing tasks.
