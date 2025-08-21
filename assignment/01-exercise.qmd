@@ -16,10 +16,10 @@ Before starting this exercise, make sure you complete everything at [the lesson 
 
 1. Open the project either on your computer ([follow these instructions to get started!](/resource/install.qmd)) or in Posit.cloud
 
-   - [{{< fa file-archive >}} `03-exercise.zip`](/projects/01-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `03-exercise.Rproj`
+   - [{{< fa file-archive >}} `01-exercise.zip`](/projects/01-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `01-exercise.Rproj`
    - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/679548/content/10729158): Use this link if you're using Posit.cloud in your browser
 
-2. Rename the Quarto file named `your-name_exercise-3.qmd` to something that matches your name and open it in RStudio.
+2. Rename the Quarto file named `your-name_exercise-1.qmd` to something that matches your name and open it in RStudio.
 
 3. Complete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document—don't try to write everything from scratch!
 
