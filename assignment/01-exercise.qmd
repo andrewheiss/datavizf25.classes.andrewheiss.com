@@ -12,114 +12,31 @@ knitr::opts_chunk$set(fig.align = "center")
 Before starting this exercise, make sure you complete everything at [the lesson for this week](/lesson/01-lesson.qmd), especially the Posit Primers.
 :::
 
+## Instructions
 
-## Task 1: Make an RStudio Project
+1. Open the project either on your computer ([follow these instructions to get started!](/resource/install.qmd)) or in Posit.cloud
 
-1. Use either Posit.cloud or RStudio on your computer (preferably RStudio on your computer! [Follow these instructions to get started!](/resource/install.qmd)) to create a new RStudio Project.
+   - [{{< fa file-archive >}} `03-exercise.zip`](/projects/01-exercise.zip): If you're using R on your own computer, download this file, [*unzip it*](/resource/unzipping.qmd), and double click on the file named `03-exercise.Rproj`
+   - [{{< fa cloud >}} Posit.cloud project](https://posit.cloud/spaces/679548/content/10729158): Use this link if you're using Posit.cloud in your browser
 
-2. Create a folder named "data" in the project folder you just made.
+2. Rename the Quarto file named `your-name_exercise-3.qmd` to something that matches your name and open it in RStudio.
 
-3. Download this CSV file and place it in that folder:
+3. Complete the tasks given in the Quarto file. You can definitely copy, paste, and adapt from other code in the document—don't try to write everything from scratch!
 
-   - [{{< fa file-csv >}} `cars.csv`](/files/data/package_data/cars.csv)
-
-4. In RStudio, go to "File" > "New File…" > "Quarto Document…" and click "OK" in the dialog without changing anything.
-
-5. Delete all the placeholder text in that new file and replace it with this:
-
-   ````default
-   ---
-   title: "Introduction to R and the tidyverse"
-   subtitle: "Exercise 1 --- PMAP 8551, Fall 2025"
-   format: 
-     html:
-       toc: true
-     pdf:
-       toc: true
-     docx:
-       toc: true
-   ---
-   
-   ```{{r}}
-   #| label: load-libraries-data
-   #| warning: false
-   #| message: false
-
-   library(tidyverse)
-   
-   cars <- read_csv("data/cars.csv")
-   ```
-   
-   # Session check-in
-   
-   Three interesting or exciting things:
-
-   1. Something
-   2. Something
-   3. Something
-
-   Three muddy or unclear things:
-
-   1. Something
-   2. Something
-   3. Something
-   
-   
-   # My first plots
-
-   Insert a chunk below and use it to create a scatterplot (hint: `geom_point()`) with diplacement (`displ`) on the x-axis, city MPG (`cty`) on the y-axis, and with the points colored by drive (`drv`).
-
-   PUT CHUNK HERE
-
-   Insert a chunk below and use it to create a histogram (hint: `geom_histogram()`) with highway MPG (`hwy`) on the x-axis. Do not include anything on the y-axis (`geom_histogram()` will do that automatically for you). Choose an appropriate bin width. If you're brave, facet by drive (`drv`).
-
-   PUT CHUNK HERE
-
-
-   # My first data manipulation
-
-   Insert a chunk below and use it to calculate the average city MPG (`cty`) by class of car (`class`). This won't be a plot---it'll be a table. Hint: use a combination of `group_by()` and `summarize()`.
-
-   PUT CHUNK HERE
-   ````
-
-6. Save the Quarto file with some sort of name (**without any spaces!**)
-
-7. Your project folder should look something like this:
-
-   ::: {layout="[40,-1,55]"}
-   ![Example project folder on macOS](/files/img/assignments/project-structure-macos.png)
-
-   ![Example project folder on Windows](/files/img/assignments/project-structure-windows.png)
-
-   :::
-
-## Task 2: Work with R
-
-1. Add your [session check-in](/assignment/session-check-in.qmd) to the appropriate place in the Quarto file. You can type directly in RStudio if you want (though there's no spell checker), or you can type it in Word or Google Docs and then paste it into RStudio.
-
-2. Remove the text that says "PUT CHUNK HERE" and insert a new R code chunk. Either type <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> on Windows, or <kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>i</kbd> on macOS, or use the "Insert Chunk" menu:
-
-```{r insert-chunk-button, echo=FALSE, out.width="19%", indent="   "}
-knitr::include_graphics("/files/img/assignments/insert-chunk-button.png", error = FALSE)
-```
-
-3. Follow the instructions for the three chunks of code.
-
-4. Render your document as a Word file (or PDF if you're brave and [installed LaTeX](/resource/install.qmd#install-tinytex)). Use the "Render" menu:
+4. When you're all done, click on the "Render" button at the top of the editing window and create a Typst (pdf), PDF, or Word version of your document. Upload that file to iCollege. **Do not upload a rendered HTML file** (they don't work on iCollege).
 
 ```{r render-button, echo=FALSE, out.width="50%", indent="   ", fig.align="center"}
 knitr::include_graphics("/files/img/assignments/render-button.png", error = FALSE)
 ```
 
-5. Upload the rendered document to iCollege.
-
-6. `r emoji::emoji("tada")` Party! `r emoji::emoji("tada")`
+## Tips
 
 :::: {.callout-tip}
 ### File organization
 
-You'll be doing this same process for all your future exercises. Each exercise will involve an Quarto file. Or you can create individual projects for each assignment and mini-project (recommended!):
+You'll be doing this same process for all your future exercises. Each exercise will involve a Quarto file. 
+
+You can either create individual projects for each assignment and mini-project (recommended!):
 
 ::: {layout="[39.5,-1,60]"}
 

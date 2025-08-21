@@ -1,18 +1,18 @@
 ---
 title: "Mapping data to graphics"
-subtitle: "Exercise 3 --- PMAP 8551, Fall 2025"
+subtitle: "Exercise 3 --- PMAP 8551/4551, Fall 2025"
 author: "YOUR NAME HERE"
 date: "DATE GOES HERE"
 date-format: "long"
 format:
   html:
     toc: true
+  typst:
+    toc: true
   pdf:
     toc: true
   docx:
     toc: true
----
-
 ---
 
 # Task 1: Session check-in
@@ -32,17 +32,32 @@ Three muddy or unclear things:
 
 # Task 2: Lord of the Rings
 
-## Load and clean data
+```{r}
+#| label: setup
+#| warning: false
+#| message: false
 
-First we load, restructure, and clean the data.
+# Load libraries here
+library(tidyverse)
+```
+
+## Data description and cleaning
+
+This data contains counts of words spoken by characters of different species and genders in the *Lord of the Rings* movie trilogy. It originally comes from the *manyeyes* data blog, which no longer exists---Jenny Bryan [has a copy here](https://github.com/jennybc/lotr-tidy/tree/master/data).
+
+There are three CSV files in `data/`---one for each film. The code below loads, restructures, and cleans the data. **You don't need to modify anything in this chunk of code---you only need to run it.**
+
+The resulting `lotr` dataset contains the following columns:
+
+- `Film`: The name of the film
+- `Species`: The type of species (elf, hobbit, man)
+- `Gender`: Female and male
+- `Words`: The number of words spoken in each film, species, and gender
 
 ```{r}
 #| label: load-clean-data
 #| warning: false
 #| message: false
-
-# You'll only need the tidyverse library for this exercise
-library(tidyverse)
 
 # Load the separate datasets
 fellowship <- read_csv("data/The_Fellowship_Of_The_Ring.csv")
@@ -50,42 +65,118 @@ tt <- read_csv("data/The_Two_Towers.csv")
 rotk <- read_csv("data/The_Return_Of_The_King.csv")
 
 # bind_rows() stacks data frames on top of each other
-lotr_wide <- bind_rows(fellowship, tt, rotk) |> 
+lotr_wide <- bind_rows(fellowship, tt, rotk) |>
   # Make the Film column a categorical variable (factor), and put it in the
   # order the categories appear (so the films are in the correct order)
   mutate(Film = fct_inorder(Film))
 
-# Make this wide data tidy
-lotr <- lotr_wide |> 
-  # This is the new way to make data long
-  pivot_longer(cols = c(Female, Male), 
-               names_to = "Gender", values_to = "Words")
+# Make this wide data long and tidy
+lotr <- lotr_wide |>
+  pivot_longer(cols = c(Female, Male), names_to = "Gender", values_to = "Words")
 ```
 
 
 ## Species
 
-Does a certain species dominate (i.e. speak the most) the entire trilogy? (hint: group by `Species`)
+Does a certain species dominate (i.e. speak the most) the entire trilogy?
+
+### Recreate data summary
+
+Use `group_by()` and `summarize()` to create a data frame named `lotr_species` that looks like this:
+
+```
+# A tibble: 3 × 2
+  Species total
+  <chr>   <dbl>
+1 Elf      3737
+2 Hobbit   8796
+3 Man      8712
+```
 
 ```{r}
+#| label: recreation-data-1
+
+# Do stuff here
+```
+
+### Recreate plot
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-1
+#| message: false
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-1-1.png")
+```
+
+Use `ggplot()` and `geom_col()` in the chunk below to re-create the plot above using the `lotr_species` dataset.
+
+```{r}
+#| label: recreation-plot-1
+
 # Do stuff here
 ```
 
 
 ## Gender and film
 
-Does a certain gender dominate a movie? (lolz of course it does, but still, graph it) (Hint: group by both `Gender` and `Film`.) Experiment with filling by `Gender` or `Film` and faceting by `Gender` or `Film`.
+Does a certain gender dominate a movie? (lolz of course it does, but still, graph it).
+
+### Recreate data summary
+
+Use `group_by()` and `summarize()` to create a data frame named `lotr_gender_film` that looks like this:
+
+```
+# A tibble: 6 × 3
+# Groups:   Gender [2]
+  Gender Film                       total
+  <chr>  <fct>                      <dbl>
+1 Female The Fellowship Of The Ring  1243
+2 Female The Two Towers               732
+3 Female The Return Of The King       453
+4 Male   The Fellowship Of The Ring  6610
+5 Male   The Two Towers              6565
+6 Male   The Return Of The King      5642
+```
 
 ```{r}
+#| label: recreation-data-2
+
+# Do stuff here
+```
+
+### Recreate plot
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-2
+#| message: false
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-2-1.png")
+```
+
+Use `ggplot()` and `geom_col()` in the chunk below to re-create the plot above using the `lotr_gender_film` dataset.
+
+```{r}
+#| label: recreation-plot-2
+
 # Do stuff here
 ```
 
 
 ## Species and film
 
-Does the dominant species differ across the three movies? (Hint: group by both `Species` and `Film`.) Experiment with filling by `Species` or `Film` and faceting by `Species` or `Film`.
+Does the dominant species differ across the three movies?
+
+There's no recreation here---you have all the code you need above. Hint: you'll need to group by `Species` and `Film`.
 
 ```{r}
+#| label: species-film-plot
+
 # Do stuff here
 ```
 
@@ -94,8 +185,18 @@ Does the dominant species differ across the three movies? (Hint: group by both `
 
 Create a plot that visualizes the number of words spoken by species, gender, and film simultaneously. Use the complete tidy `lotr` data frame. You don't need to create a new summarized dataset (with `group_by(Species, Gender, Film)`) because the original data already has a row for each of those (you could make a summarized dataset, but it would be identical to the full version).
 
-You need to show `Species`, `Gender`, and `Film` at the same time, but you only have two possible aesthetics (`x` and `fill`), so you'll also need to facet by the third. Play around with different combinations (e.g. try `x = Species`, then `x = Film`) until you find one that tells the clearest story. For fun, add a `labs()` layer to add a title and subtitle and caption.
+You need to show `Species`, `Gender`, and `Film` at the same time, but you only have two possible aesthetics (`x` and `fill`), so you'll also need to facet by the third. Play around with different combinations (e.g. try `x = Species`, then `x = Film`) until you find one that tells the clearest story.
 
 ```{r}
+# Do stuff here
+```
+
+# Task 3: Extension
+
+Copy the code for one of your plots above and paste it into the chunk below. Do some extra things to it, like changing the labels, changing the colors, adding a new geom, plotting a different variable from the dataset, filling by something that you're faceting with (or vice versa), changing the theme, or whatever. **This is your chance to play around and explore.**
+
+```{r}
+#| label: extension
+
 # Do stuff here
 ```

@@ -1,11 +1,13 @@
 ---
 title: "Amounts and proportions"
-subtitle: "Exercise 4 --- PMAP 8551, Fall 2025"
+subtitle: "Exercise 4 --- PMAP 8551/4551, Fall 2025"
 author: "YOUR NAME HERE"
 date: "DATE GOES HERE"
 date-format: "long"
 format:
   html:
+    toc: true
+  typst:
     toc: true
   pdf:
     toc: true
@@ -28,93 +30,235 @@ Three muddy or unclear things:
 3. Something
 
 
-# Task 2: Essential pandemic construction
+# Task 2: Long Beach Animal Shelter
 
-The New York City Department of Buildings (DOB) maintains [a list of construction sites](https://www1.nyc.gov/assets/buildings/html/essential-active-construction.html) that have been categorized as "essential" during the city's shelter-in-place pandemic order.
+```{r}
+#| label: setup
+#| warning: false
+#| message: false
 
-## Load and clean data
+# Load libraries here
+library(tidyverse)
+```
 
-First we load and clean the data (downloaded in May 2020):
+## Data description and cleaning
+
+This data comes from the [City of Long Beach Animal Care Services](https://www.longbeach.gov/acs/) via the [{animalshelter}](https://emilhvitfeldt.github.io/animalshelter/) R package (and it was a [#TidyTuesday dataset in March 2025](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md)).
+
+There are 22 columns, and [they're documented here](https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md#data-dictionary)---make sure you consult that page!
+
+The code below loads and cleans the data, mostly by filtering it to include the most common types of animals, intake types, and outcome types. **You don't need to modify anything in this chunk of code---you only need to run it.**
 
 ```{r}
 #| label: load-clean-data
 #| warning: false
 #| message: false
 
-# You'll only need the tidyverse library for this exercise
-library(tidyverse)
+# Load the full data
+animals_raw <- read_csv("data/animals.csv")
 
-# Load original data
-essential_raw <- read_csv("data/EssentialConstruction.csv")
-
-# Clean the data a little
-# Some of the borough names are in ALL CAPS, so we use str_to_title() to convert
-# everything in the column to title case.
-# We also make BOROUGH and CATEGORY factors (or categorical variables)
-essential <- essential_raw |> 
-  mutate(BOROUGH = str_to_title(BOROUGH),
-         BOROUGH = factor(BOROUGH),
-         CATEGORY = factor(CATEGORY))
-```
-
-## Approved projects by borough
-
-Right now there's a row for each approved construction site. We need to condense that down to get counts of construction sites by different variables. We can do this by using `group_by()` and `summarize()`
-
-```{r}
-#| label: summarize-data-borough
-
-essential_by_borough <- essential |>
-  group_by(BOROUGH) |>
-  summarize(total = n()) |>
-  mutate(proportion = total / sum(total))
-```
-
-```{r}
-#| label: plot-borough-summary
-
-# Add plot with geom_col() here
+animals <- animals_raw |> 
+  # Only keep the most common animals, intake types, and outcome types
+  filter(animal_type %in% c("bird", "cat", "dog", "wild", "other")) |>
+  filter(intake_type %in% c("owner surrender", "stray", "wildlife")) |>
+  filter(
+    outcome_type %in%
+      c("outcome_type", "rescue", "adoption", "euthanasia", "transfer",
+        "return to owner", "shelter, neuter, return", "died",
+        "community cat", "return to wild habitat")
+  ) |>
+  # Add columns for the year and month
+  mutate(
+    intake_year = year(intake_date),
+    intake_month = month(intake_date, label = TRUE, abbr = FALSE)
+  ) |> 
+  mutate(
+    across(c(animal_type, intake_type, outcome_type), 
+    \(x) str_to_title(x))
+  )
 ```
 
 
-## Approved projects by category
+## Animal type
 
-```{r}
-#| label: summarize-data-category
+What are the most common type of animals seen by the shelter?
 
-# Create a summarized dataset of projects by category
-#
-# I won't give you the code for this (big hint though: copy the code for the
-# borough summary and change just one thing)
+### Recreate data summary
+
+Right now there's a row for each animal visit. We need to condense that down to get counts of different types of variables. We can do this by using `group_by()` and `summarize()`.
+
+Use `group_by()` and `summarize()` to create a data frame named `animal_counts` that looks like this (hint---in `summarize()`, you'll want to use the `n()` function to calculate the number of rows in each group):
+
+```
+# A tibble: 5 × 2
+  animal_type total
+  <chr>       <int>
+1 Bird         1952
+2 Cat         13367
+3 Dog          8448
+4 Other        1280
+5 Wild         1366
 ```
 
 ```{r}
-#| label: plot-category-summary
+#| label: recreation-data-1
 
-# Add a lollipop chart here
+# Do stuff here
+```
+
+### Recreate bar plot
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-1
+#| message: false
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-1-1.png")
+```
+
+Use `ggplot()` and `geom_col()` in the chunk below to re-create the plot above using the `animal_counts` dataset. (*note*---the bars are filled, but there's no legend)
+
+```{r}
+#| label: recreation-plot-1
+
+# Do stuff here
 ```
 
 
-## Approved projects across borough and category
+## Outcomes
 
-```{r}
-#| label: summarize-data-heatmap
+What are the most common types of outcomes for animals taken to the shelter? What proportion are adopted or rescued?
 
-# Create a summarized dataset of projects by both borough and category
-#
-# I also won't give you the code to make the summary for the heatmap. You'll
-# need to group by two variables to make the summary. IMPORTANTLY you'll also
-# need to add another group_by() in between summarize() and mutate(), otherwise,
-# R will calculate percentages in unexpected groups.
-#
-# If you want the percentages of categories to add up to 100% in each borough,
-# you'll want to group by borough before calculating the proportion; if you want
-# the percentages of boroughs to add up to 100% in each category, you'll want to
-# group by category
+### Recreate data summary
+
+Use `group_by()` and `summarize()` and `mutate()` to create a data frame named `outcome_props` that looks like this (hint---that proportion column is calculated like `total / sum(total)`):
+
+```
+# A tibble: 9 × 3
+  outcome_type            total proportion
+  <chr>                   <int>      <dbl>
+1 Adoption                 5651    0.214  
+2 Community Cat             382    0.0145 
+3 Died                      715    0.0271 
+4 Euthanasia               5250    0.199  
+5 Rescue                   6022    0.228  
+6 Return To Owner          2579    0.0976 
+7 Return To Wild Habitat    251    0.00950
+8 Shelter, Neuter, Return   911    0.0345 
+9 Transfer                 4652    0.176
 ```
 
 ```{r}
-#| label: plot-heatmap
+#| label: recreation-data-2
 
-# Add a heatmap here with geom_tile()
+# Do stuff here
+```
+
+### Recreate lollipop plot
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-2
+#| message: false
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-2-1.png")
+```
+
+Use `ggplot()` and `geom_pointrange()` in the chunk below to re-create the plot above using the `outcome_props` dataset.
+
+```{r}
+#| label: recreation-plot-2
+
+# Do stuff here
+```
+
+Currently the outcome types are sorted alphabetically, which isn't super helpful. Sort them by proportion and recreate the plot below.
+
+```{r}
+#| label: recreate-me-3
+#| message: false
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-3-1.png")
+```
+
+*Big hint!* Add this to the end of the code to make `outcome_props` to order `outcome_type` by the proportion column:
+
+```r
+CODE_FOR_OUTCOME_PROPS |> 
+  mutate(outcome_type = fct_reorder(outcome_type, proportion))
+```
+
+```{r}
+#| label: recreation-plot-3
+
+# Do stuff here
+```
+
+
+## Intake type over time
+
+Are there seasonal patterns in the types of animal intake at the shelter?
+
+### Recreate data summary
+
+Use `group_by()` and `summarize()` and `mutate()` to create a data frame named `month_intake_props` that looks like the output below.
+
+You'll need to group by two variables to make the summary. IMPORTANTLY you'll also need to add another `group_by()` in between `summarize()` and `mutate()`, otherwise, R will calculate percentages in unexpected groups.
+
+If you want the percentages of months to add up to 100% in each intake type (i.e. the percent of adoptions in January, February, March, etc.), you'll want to group by `intake_type` before calculating the proportion; if you want the percentages of intake types to add up to 100% in each month (i.e. the percent of all different intake types in January), you'll want to group by `intake_month` before calculating the proportion.
+
+```
+# A tibble: 36 × 4
+# Groups:   intake_type [3]
+   intake_type     intake_month total proportion
+   <chr>           <ord>        <int>      <dbl>
+ 1 Owner Surrender January        196     0.0844
+ 2 Owner Surrender February       240     0.103 
+ 3 Owner Surrender March          254     0.109 
+ 4 Owner Surrender April          189     0.0814
+ 5 Owner Surrender May            206     0.0887
+ 6 Owner Surrender June           190     0.0818
+ 7 Owner Surrender July           165     0.0710
+ 8 Owner Surrender August         214     0.0921
+ 9 Owner Surrender September      175     0.0753
+10 Owner Surrender October        167     0.0719
+# ℹ 26 more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
+### Recreate heatmap
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-4
+#| message: false
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-4-1.png")
+```
+
+Use `ggplot()` and `geom_tile()` in the chunk below to re-create the plot above using the `outcome_props` dataset.
+
+*Hint*: By default, the months will appear reversed, with January at the bottom and December at the top. Use `y = fct_rev(intake_month)` to reverse them.
+
+```{r}
+#| label: recreation-plot-4
+
+# Do stuff here
+```
+
+# Task 3: Extension
+
+Copy the code for one of your plots above and paste it into the chunk below. Do some extra things to it, like changing the labels, changing the colors, adding a new geom, plotting a different variable from the dataset (there are lots of them!), changing the theme, or whatever. **This is your chance to play around and explore.**
+
+```{r}
+#| label: extension
+
+# Do stuff here
 ```

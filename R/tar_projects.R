@@ -23,7 +23,7 @@ make_data_and_zip_projects <- list(
   save_data,
   
   # Link all these data building and copying targets into individual dependencies
-  tar_combine(copy_data, tar_select_targets(save_data, starts_with("copy_"))),
+  # tar_combine(copy_data, tar_select_targets(save_data, starts_with("copy_"))),
   tar_combine(build_data, tar_select_targets(save_data, starts_with("data_"))),
   
   # Use metaprogramming (https://books.ropensci.org/targets/static.html#metaprogramming)
@@ -43,7 +43,7 @@ make_data_and_zip_projects <- list(
       target_name,
       {
         # Make the copying and building targets are dependencies here
-        copy_data
+        # copy_data
         build_data
         
         # Zip things up

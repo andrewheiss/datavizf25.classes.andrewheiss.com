@@ -1,0 +1,164 @@
+---
+title: "Introduction to R and the tidyverse"
+subtitle: "Exercise 1 --- PMAP 8551/4551, Fall 2025"
+author: "YOUR NAME HERE"
+date: "DATE GOES HERE"
+date-format: "long"
+format:
+  html:
+    toc: true
+  typst:
+    toc: true
+  pdf:
+    toc: true
+  docx:
+    toc: true
+---
+
+
+# Task 1: Session check-in
+
+Three interesting or exciting things:
+
+1. Something
+2. Something
+3. Something
+
+Three muddy or unclear things:
+
+1. Something
+2. Something
+3. Something
+
+
+# Task 2: Penguins
+
+## Data description
+
+For this exercise, you'll be exploring data about 333 penguins living across three islands in Antarctica. See [this website](https://allisonhorst.github.io/palmerpenguins/) for complete details about the data and the variables included.
+
+```{r}
+#| label: load-libraries-data
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+penguins <- read_csv("data/penguins.csv") |> 
+  drop_na(sex)
+```
+
+## Recreate scatterplot
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-1
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-1-1.png")
+```
+
+Use `ggplot()` in the chunk below to re-create the plot above.
+
+```{r}
+#| label: recreation-plot-1
+
+# Do stuff here
+```
+
+
+## Recreate histogram
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-2
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-2-1.png")
+```
+
+Use `ggplot()` in the chunk below to re-create the plot above (hint---it's a histogram with a bin width of 200 grams).
+
+```{r}
+#| label: recreation-plot-2
+
+# Do stuff here
+```
+
+
+## Recreate scatterplot
+
+Run the code chunk below to see a plot.
+
+```{r}
+#| label: recreate-me-3
+#| echo: false
+
+knitr::include_graphics("images/recreate-me-3-1.png")
+```
+
+Insert a new chunk below and use `ggplot()` re-create the plot above.
+
+
+
+## Recreate filtered dataset
+
+Here are all the Chinstrap penguins that weigh more than 4,000 grams:
+
+```
+# A tibble: 15 × 8
+   species   island bill_len bill_dep flipper_len body_mass sex     year
+   <chr>     <chr>     <dbl>    <dbl>       <dbl>     <dbl> <chr>  <dbl>
+ 1 Chinstrap Dream      46       18.9         195      4150 female  2007
+ 2 Chinstrap Dream      52       18.1         201      4050 male    2007
+ 3 Chinstrap Dream      50.5     19.6         201      4050 male    2007
+ 4 Chinstrap Dream      49.2     18.2         195      4400 male    2007
+ 5 Chinstrap Dream      52       19           197      4150 male    2007
+ 6 Chinstrap Dream      52.8     20           205      4550 male    2008
+ 7 Chinstrap Dream      54.2     20.8         201      4300 male    2008
+ 8 Chinstrap Dream      51       18.8         203      4100 male    2008
+ 9 Chinstrap Dream      52       20.7         210      4800 male    2008
+10 Chinstrap Dream      53.5     19.9         205      4500 male    2008
+11 Chinstrap Dream      50.8     18.5         201      4450 male    2009
+12 Chinstrap Dream      49       19.6         212      4300 male    2009
+13 Chinstrap Dream      50.7     19.7         203      4050 male    2009
+14 Chinstrap Dream      49.3     19.9         203      4050 male    2009
+15 Chinstrap Dream      50.8     19           210      4100 male    2009
+```
+
+Use `filter()` in the chunk below to re-create that dataset:
+
+```{r}
+#| label: recreation-data-1
+
+# Do stuff here
+```
+
+
+## Recreate summarized dataset
+
+Here are the average weights of male penguins across the three islands:
+
+```
+# A tibble: 3 × 2
+  island    avg_weight
+  <chr>          <dbl>
+1 Biscoe         5105.
+2 Dream          3987.
+3 Torgersen      4035.
+```
+
+Insert a chunk below and use `filter()`, `group_by()`, and `summarize()` to re-create that dataset:
+
+
+# Task 3: Extension
+
+Copy the code for one of your plots or tables above and paste it into the chunk below. Do some extra things to it, like changing the labels, changing the colors, adding a new geom, plotting a different variable from the dataset, changing the theme, or whatever. **This is your chance to play around and explore.**
+
+```{r}
+#| label: extension
+
+# Do stuff here
+```
