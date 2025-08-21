@@ -1,4 +1,35 @@
 # This file is generated with data/extract-news-headings.R; do not edit by hand
 
-[]
+- title: "Building community on Discord"
+  categories:
+  - "advice"
+  date_actual: '1755787440'
+  date: "2025-08-21T14:44:00"
+  href: "/news/2025-08-21_building-community.html"
+  headings:
+  - id: "class-community"
+    text: "Class community"
+  - id: "online-community"
+    text: "Online community"
+- title: "Announcements and updates"
+  categories:
+  - "getting started"
+  date_actual: '1755782280'
+  date: "2025-08-21T13:18:00"
+  href: "/news/2025-08-21_announcements-updates.html"
+  headings: []
+- title: "Important R stuff"
+  categories:
+  - "getting started"
+  date_actual: '1755736920'
+  date: "2025-08-21T00:42:00"
+  href: "/news/2025-08-21_important-r-stuff.html"
+  headings: []
+- title: "Welcome to class!"
+  categories:
+  - "getting started"
+  date_actual: '1755695280'
+  date: "2025-08-20T13:08:00"
+  href: "/news/2025-08-20_welcome.html"
+  headings: []
 
