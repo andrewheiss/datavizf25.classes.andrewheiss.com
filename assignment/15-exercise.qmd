@@ -4,7 +4,7 @@ date: "2025-12-09"
 engine: knitr
 ---
 
-For your final exercise, you won't do anything with R. You'll instead have two writing tasks. You can write these in Quarto if you want, or you can do it in Word or Google Docs or wherever else. 
+For your final exercise, you won't do anything with R. You'll instead have two writing tasks. You can write these in Quarto if you want, or you can do it in Word or Google Docs or wherever else.
 
 ## Task 1: Storytelling check-in
 
