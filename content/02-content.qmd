@@ -39,7 +39,7 @@ Graphic design principles:
 
 CRAP:
 
-- {{< fa brands youtube >>}} [4 Foundational UI Design Principles | C.R.A.P.](https://www.youtube.com/watch?v=uwNClNmekGU). This is another quick explanation of CRAP and a walkthrough of redesiging something boring/ugly with CRAP principles in mine
+- {{< fa brands youtube >}} [4 Foundational UI Design Principles | C.R.A.P.](https://www.youtube.com/watch?v=uwNClNmekGU). This is another quick explanation of CRAP and a walkthrough of redesiging something boring/ugly with CRAP principles in mine
 
 Colors: 
 
